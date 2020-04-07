@@ -1,0 +1,260 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>学生管理系统</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/1.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script type="text/javascript" src="../dist/js/jquery/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../dist/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../dist/js/1.js"></script>
+</head>
+
+<body>
+<div class="topnav">
+    <ul>
+        <a class="active" href="../index.html"><span class="glyphicon glyphicon-home"></span> 主页</a>
+        <a href="showstudent.html" target="_self">学生</a>
+        <a href="showteacher.html">教师</a>
+        <a href="showclass.html">班级</a>
+        <a href="showmajor.html">专业</a>
+        <a href="#about" style="float:right">关于 <span class="glyphicon glyphicon-info-sign"></span></a>
+    </ul>
+</div>
+<div class="row">
+    <div class="panel-group col-sm-2" id="panelContainer">
+        <div class="panel panel-default">
+            <div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-user"></i>
+                <a href="#">学生管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub1" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>学生信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newstudent.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>学生信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>学生信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-book"></i>
+                <a href="#">教师管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub2" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>教师信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newteacher.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>教师信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>教师信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header3" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="#">班级管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub3" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>班级信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newclass.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>班级信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>班级信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header4" class="panel-heading" data-toggle="collapse" data-target="#sub4" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-leaf"></i>
+                <a href="#">专业管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub4" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>专业信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newmajor.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>专业信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>专业信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="col-sm-10">
+        <ol class="breadcrumb">
+            <li class="active">菜单
+            </li>
+            <li class="active">班级列表
+            </li>
+        </ol>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-search"></span>  搜索
+            </div>
+            <div class="panel-body">
+                <form role="search" class="navbar-form" id="search">
+                    <div class="form-group">
+                        <input type="text"  placeholder="Search" class="form-control" name="search">
+                    </div>
+                    <button class="btn btn-default" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <!--列表展示-->
+        <div class="table-responsive">
+            <!--            <div class="panel-heading">Search Results</div>-->
+            <table id="results" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th width="100">班号</th>
+                    <th width="100">班级名</th>
+                    <th width="100">年级</th>
+                    <th width="100">班主任</th>
+                    <th width="100">专业</th>
+                    <th width="60">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <ul class="pagination" style="float: right;">
+            <li><a href="#">&laquo;</a>
+            </li>
+            <li class="active"><a href="#">1</a>
+            </li>
+            <li class="disabled"><a href="#">2</a>
+            </li>
+            <li><a href="#">3</a>
+            </li>
+            <li><a href="#">4</a>
+            </li>
+            <li><a href="#">5</a>
+            </li>
+            <li><a href="#">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        function search() {
+            const query = $("#search").find("input[name=search]").val();
+            $.get("/class/query?major=*" + encodeURIComponent(query) + "*",
+                function (data) {
+                    var t = $("table#results tbody").empty();
+                    if (!data) return;
+                    data.forEach(function (clazz) {
+                        $("<tr><td>" + clazz.class_id + "</td><td  class='name'>" +  clazz.name + "</td><td>" + clazz.grade + "</td><td>"
+                            + clazz.teacher + "</td><td class='major'>" + clazz.major + "</td><td>" +
+                            "<button type=\"button\" class=\"btn btn-default btn-warning edit\"data-toggle=\"modal\" data-target=\"#myEdit\" onclick=\"edit(this);\">编辑</button>"+
+                            "<button type=\"button\" class=\"btn btn-default btn-danger del\" onclick=\"del(this);\">删除</button></td>" + "</tr>").appendTo(t)
+                    });
+                }, "json");
+            return false;
+        }
+
+        $("#search").submit(search);
+        search();
+    });
+
+    function edit(obj){
+        const res = confirm('确认要编辑吗？');
+        const major = $(obj).parents("tr").find(".major").eq(0).html();
+        if(res === true) {
+            window.location.href="../edit/editclass.html?major="+major;
+        }
+    }
+    function del(obj){
+        const res = confirm('确认要删除吗？');
+        const name = $(obj).parents("tr").find(".name").eq(0).html();
+        if(res === true) {
+            $(obj).parents("tr").remove();
+            $.ajax({
+                url: "/class/delete",
+                type: "POST",
+                data: {
+                    "name":name
+                },
+                contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                dataType: "text",
+                async: true,
+                success: function (data) {
+                    console.log(data);
+                    alert("删除成功");
+                },
+                error: function () {
+                    alert("数据发送失败");
+                }
+            });
+        }
+    };
+</script>
+<!-- 底部页脚部分 -->
+<div class="footer">
+    <p class="text-center">
+        2020 &copy; Odin.
+    </p>
+</div>
+</body>
+</html>

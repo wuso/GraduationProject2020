@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<title>修改</title>
+<head th:include="include :: header"></head>
+<div class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-madArea-edit" th:object="${number}">
+            <input  type="hidden" name="tid" id="tid" th:field="*{tid}"/>
+            <div class="form-group">
+                <label class="col-sm-3 control-label ">代码：</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" required name="tcode" id="tcode" th:field="*{tcode}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">名称：</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" required name="tname" id="tname" th:field="*{tname}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="remark" id="remark" th:field="*{remark}"/>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="pull-right">
+                        <button id="buttonEdit_preservation" type="button" class="btn btn-success">保存</button>
+                        <button id="button_cancel" type="button" class="btn btn-warning">取消</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>　　

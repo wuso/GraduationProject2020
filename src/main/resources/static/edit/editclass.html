@@ -1,0 +1,338 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>学生管理系统</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/1.css" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script type="text/javascript" src="../dist/js/jquery/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../dist/js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../dist/js/bootstrap/bootstrapValidator.js"></script>
+    <script src="../dist/js/1.js"></script>
+</head>
+
+<!--<body onload="SelectMajor()">-->
+<div class="topnav">
+    <ul>
+        <a class="active" href="../index.html"><span class="glyphicon glyphicon-home"></span> 主页</a>
+        <a href="../show/showstudent.html" target="_self">学生</a>
+        <a href="../show/showteacher.html">教师</a>
+        <a href="../show/showclass.html">班级</a>
+        <a href="../show/showmajor.html">专业</a>
+        <a href="#about" style="float:right">关于 <span class="glyphicon glyphicon-info-sign"></span></a>
+    </ul>
+</div>
+<div class="row">
+    <div class="panel-group col-sm-2" id="panelContainer">
+        <div class="panel panel-default">
+            <div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-user"></i>
+                <a href="#">学生管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub1" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>学生信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newstudent.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>学生信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>学生信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-book"></i>
+                <a href="#">教师管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub2" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>教师信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newteacher.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>教师信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>教师信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header3" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="#">班级管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub3" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>班级信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newclass.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>班级信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>班级信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header4" class="panel-heading" data-toggle="collapse" data-target="#sub4" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-leaf"></i>
+                <a href="#">专业管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub4" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>专业信息录入</a>
+                        </li>
+                        <li>
+                            <a href="../new/newmajor.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>专业信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>专业信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <ol class="breadcrumb">
+            <li class="active">菜单
+            </li>
+            <li class="active">班级信息
+            </li>
+        </ol>
+        <!--class属性在css用 action属性后接映射名在控制器里面有 method属性一般都是post -->
+        <form id="Form" method="post" class="form-horizontal" action="/class/edit"
+              data-bv-message="This value is not valid"
+              data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+              data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+              data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">班级名称</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="name" placeholder="班级名称" required data-bv-notempty-message="班级名称不能为空" />
+                        <!--type说明他是文本输入框  name后接实体类的类成员名字，不然传不出去！！-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">所属年级</label>
+                    <div class="col-lg-4">
+                        <select class="form-control" name="grade" data-bv-notempty data-bv-notempty-message="需要选择年级">
+                            <option value="">-- Select a grade --</option>
+                            <option value=2012>2012级</option>
+                            <option value=2013>2013级</option>
+                            <option value=2014>2014级</option>
+                            <option value=2015>2015级</option>
+                            <option value=2016>2016级</option>
+                            <option value=2017>2017级</option>
+                            <option value=2018>2018级</option>
+                            <option value=2019>2019级</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">班级编号</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="class_id"
+                               placeholder="默认为6位数字 e.g:202001"
+                               data-bv-message="无效的编号"
+                               required data-bv-notempty-message="编号必须填写且不能为空"
+                               pattern="^[0-9]+$" data-bv-regexp-message="编号只能由数字组成"
+                               data-bv-stringlength="true" data-bv-stringlength-min="6" data-bv-stringlength-max="6" data-bv-stringlength-message="编号长度必须为6位"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">班主任姓名</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="teacher" placeholder="班主任" required data-bv-notempty-message="教师姓名不能为空" />
+                        <!--type说明他是文本输入框  name后接实体类的类成员名字，不然传不出去！！-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">所属专业</label>
+                    <div class="col-lg-4">
+                        <select id="select_major" class="form-control" name="major" data-bv-notempty data-bv-notempty-message="需要选择专业">
+                            <option value="">-- Select a major --</option>
+<!--                            <option value="计算机大类">计算机大类</option>-->
+<!--                            <option value="物联网">物联网</option>-->
+<!--                            <option value="信管">信管</option>-->
+<!--                            <option value="软件工程">软件工程</option>-->
+<!--                            <option value="人工智能">人工智能</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-9 col-lg-offset-3">
+                        <button type="submit" class="btn btn-primary">确定</button>
+                        <!--提交按钮-->
+                        <button type="reset" class="btn btn-default">重置</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+
+    window.onload=ShowMessage();
+    /**
+     * @return {boolean}
+     */
+    function ShowMessage(){
+        SelectMajor();
+        //alert(GetQueryString("name"));
+        const query = GetQueryString("major");
+        $.get("/class/query?major=*" + encodeURIComponent(query) + "*",
+            function (data) {
+                if (!data) return;
+                data.forEach(function (clazz) {
+                    // 这里用getElementsByTagName把所有的input对象取出来,这是你这个问题的关键性的地方,用ByTagName而不是ByName。
+                    const list = document.getElementsByTagName("input");
+                    // 循坏这个集合，包括了所有的input。
+                    for(let i=0; i<list.length; i++){
+                        //alert(list[i].name);
+                        if(list[i].name==="name"){
+                            list[i].value = clazz.name;
+                        }
+                        if(list[i].name==="class_id"){
+                            list[i].value = clazz.class_id;
+                        }
+                        if(list[i].name==="teacher"){
+                            list[i].value = clazz.teacher;
+                        }
+                    }
+                });
+            }, "json");
+        return false;
+    }
+
+    $(document).ready(function() {
+        //ShowMessage();
+        $('#Form').bootstrapValidator();
+        $(':submit').on('click',function(){//非submit按钮点击后进行验证，如果是submit则无需此句直接验证
+            alert(JSON.stringify($('form').serializeObject()));
+            $('#Form').bootstrapValidator('validate');//提交验证
+            if ($('#Form').data('bootstrapValidator').isValid()) {//获取验证结果，如果成功，执行下面代码
+                $.ajax({
+                    url:"/class/edit",                //提交到的url
+                    type:"POST",                      //数据提交方式(post/get)
+                    data:JSON.stringify($('form').serializeObject()),   //JSON.stringify(obj)这个函数可以把json对象转换为json字符串
+                    contentType:"application/json;charset=UTF-8",   //缺失会出现URL编码，无法转成json对象
+                    async: true, // 默认设置下，所有请求均为异步请求。如果设置为false，则发送同步请求
+                    // 请求成功后的回调函数。
+                    success: function () {
+                        alert("编辑成功");
+                        window.location.href="../show/showclass.html";
+                    },
+                });
+            }
+        });
+    });
+    /**
+     * 自动将form表单封装成json对象
+     */
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+    //展示对话框
+    var dialog = BootstrapDialog.show({
+            size: 'size-wide',
+            title: '请填写',
+            message: form,
+            onshown: function () { //对话框展示时验证表单
+                //对话框展示时验证表单
+                form.data("bootstrapValidator").validate();
+                //开始日期和结束日期修改时，主动触发校验
+                form.find('#datetimepicker1').on('changeDate', function () {
+                    form.bootstrapValidator('revalidateField', 'startTime');
+                    form.bootstrapValidator('revalidateField', 'endTime');
+                });
+                form.find('#datetimepicker2').on('changeDate', function () {
+                    form.bootstrapValidator('revalidateField', 'startTime');
+                    form.bootstrapValidator('revalidateField', 'endTime');
+                });
+            }
+        }
+    );
+    function SelectMajor() {
+        $.get("/major/query?name=**",
+            function (data) {
+                var t = $("#select_major");
+                if (!data) return;
+                data.forEach(function (major) {
+                    var option = $("<option value=" + major.name + ">" + major.name + "</option>");
+                    option.appendTo(t)
+                });
+            }, "json");
+    }
+</script>
+<!-- 底部页脚部分 -->
+<div class="footer">
+    <p class="text-center">
+        2020 &copy; Odin.
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>学生管理系统</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./dist/css/1.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script type="text/javascript" src="./dist/js/jquery/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./dist/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="./dist/js/1.js"></script>
+</head>
+
+<body>
+<div class="topnav">
+    <ul>
+        <a class="active" href="index.html"><span class="glyphicon glyphicon-home"></span> 主页</a>
+        <a href="show/showstudent.html" target="_self">学生</a>
+        <a href="show/showteacher.html">教师</a>
+        <a href="show/showclass.html">班级</a>
+        <a href="show/showmajor.html">专业</a>
+        <a href="#about" style="float:right">关于 <span class="glyphicon glyphicon-info-sign"></span></a>
+    </ul>
+</div>
+<div class="row">
+    <div class="panel-group col-sm-2" id="panelContainer">
+        <div class="panel panel-default">
+            <div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-user"></i>
+                <a href="#">学生管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub1" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>学生信息录入</a>
+                        </li>
+                        <li>
+                            <a href="new/newstudent.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>学生信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>学生信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-book"></i>
+                <a href="#">教师管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub2" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>教师信息录入</a>
+                        </li>
+                        <li>
+                            <a href="new/newteacher.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>教师信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>教师信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header3" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <a href="#">班级管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub3" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>班级信息录入</a>
+                        </li>
+                        <li>
+                            <a href="new/newclass.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>班级信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>班级信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div id="header4" class="panel-heading" data-toggle="collapse" data-target="#sub4" data-parent="#panelContainer">
+                <i class="glyphicon glyphicon-leaf"></i>
+                <a href="#">专业管理</a>
+                <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+            </div>
+            <div id="sub4" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+                        </span>专业信息录入</a>
+                        </li>
+                        <li>
+                            <a href="new/newmajor.html">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                        </span>专业信息新增</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                        </span>专业信息删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <ol class="breadcrumb">
+            <li class="active">菜单
+            </li>
+            <li class="active">主页
+            </li>
+        </ol>
+    </div>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div class="col-sm-4"  id="main" style="width: 600px;height:400px;"></div>
+    <div class="col-sm-4"  id="main1" style="width: 600px;height:400px;"></div>
+    <div class="col-sm-4"  id="main2" style="width: 600px;height:400px;"></div>
+    <div class="col-sm-4"  id="main3" style="width: 600px;height:400px;"></div>
+</div>
+<!-- 底部页脚部分 -->
+<div class="footer">
+    <p class="text-center">
+        2020 &copy; Odin.
+    </p>
+</div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    var myChart3 = echarts.init(document.getElementById('main3'));
+
+    myChart.setOption({
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ],
+                //roseType: 'angle',
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    })
+
+    myChart1.setOption({
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ],
+                //roseType: 'angle',
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    })
+    myChart2.setOption({
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ],
+                //roseType: 'angle',
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    })
+    myChart3.setOption({
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ],
+                //roseType: 'angle',
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    })
+</script>
+</body>
+</html>
