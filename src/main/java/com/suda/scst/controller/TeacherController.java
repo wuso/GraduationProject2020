@@ -36,7 +36,7 @@ public class TeacherController {
 
     //编辑教师
     @PostMapping(value = "/edit")
-    public void editByName(@RequestBody Teacher origin) {
+    public String editByName(@RequestBody Teacher origin) {
         //不可更改原节点的name的值
         Teacher teacher = teacherService.findByName(origin.getName());
         //修改原节点的信息
@@ -46,6 +46,7 @@ public class TeacherController {
         teacher.setTeacher_id(origin.getTeacher_id());
         //更新节点
         teacherService.upsertTeacher(teacher);
+        return "edit ok";
     }
 
     //查询教师

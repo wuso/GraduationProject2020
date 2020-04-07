@@ -38,7 +38,7 @@ public class MajorController {
 
     //编辑班级
     @PostMapping(value = "/edit")
-    public void editByName(@RequestBody Major origin) {
+    public String editByName(@RequestBody Major origin) {
         //不可更改原节点的name的值
         Major major = majorService.findByName(origin.getName());
         //修改原节点的信息
@@ -47,6 +47,7 @@ public class MajorController {
         major.setMajor_id(origin.getMajor_id());
         //更新节点
         majorService.upsertMajor(major);
+        return "edit ok";
     }
 
     //查询专业

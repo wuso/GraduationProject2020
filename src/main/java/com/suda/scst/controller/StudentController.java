@@ -53,7 +53,7 @@ public class StudentController {
 
     //编辑学生
     @PostMapping(value = "/edit")
-    public void editByName(@RequestBody Student student) {
+    public String editByName(@RequestBody Student student) {
         //不可更改原节点的name的值
         Student origin = studentService.findByName(student.getName());
         //修改原节点的信息
@@ -63,6 +63,7 @@ public class StudentController {
         origin.setStudent_id(student.getStudent_id());
         //更新节点
         studentService.upsertStudent(origin);
+        return "edit ok";
     }
 
     //查询

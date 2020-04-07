@@ -148,7 +148,7 @@
             </li>
         </ol>
         <!--class属性在css用 action属性后接映射名在控制器里面有 method属性一般都是post -->
-        <form id="Form" method="post" class="form-horizontal" action="/teacher/edit"
+        <form id="Form" class="form-horizontal"
               data-bv-message="This value is not valid"
               data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
               data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
@@ -213,7 +213,7 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-9 col-lg-offset-3">
-                    <button type="submit" class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-primary">确定</button>
                     <!--提交按钮-->
                     <button type="reset" class="btn btn-default">重置</button>
                 </div>
@@ -222,11 +222,6 @@
     </div>
 </div>
 <script type="text/javascript">
-
-    window.onload=ShowMessage();
-    /**
-     * @return {boolean}
-     */
     function ShowMessage(){
         const query = GetQueryString("name");
         $.get("/teacher/query?name=*" + encodeURIComponent(query) + "*",
@@ -249,12 +244,12 @@
                     }
                 });
             }, "json");
-        return false;
     }
 
     $(document).ready(function() {
+        ShowMessage();
         $('#Form').bootstrapValidator();
-        $(':submit').on('click',function(){//非submit按钮点击后进行验证，如果是submit则无需此句直接验证
+        $(':button').on('click',function(){//非submit按钮点击后进行验证，如果是submit则无需此句直接验证
             $('#Form').bootstrapValidator('validate');//提交验证
             if ($('#Form').data('bootstrapValidator').isValid()) {//获取验证结果，如果成功，执行下面代码
                 $.ajax({
@@ -263,13 +258,17 @@
                     data: JSON.stringify($('form').serializeObject()),
                     contentType: "application/json",   //缺失会出现URL编码，无法转成json对象
                     //contentType:"application/x-www-form-urlencoded;charset=UTF-8",
-                    //dataType: "text",
+                    dataType: "text",
                     async: true, // 默认设置下，所有请求均为异步请求。如果设置为false，则发送同步请求
                     // 请求成功后的回调函数。
-                    success: function () {
-                        alert("添加成功");
+                    success: function (data) {
+                        console.log(data);
+                        alert("编辑成功");
                         window.location.href="../show/showteacher.html";
                     },
+                    error: function () {
+                        alert("数据发送失败");
+                    }
                 });
             }
         });

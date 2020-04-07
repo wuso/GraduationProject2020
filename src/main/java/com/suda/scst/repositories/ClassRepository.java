@@ -16,7 +16,7 @@ public interface ClassRepository extends Neo4jRepository<Class, Long> {
 
     Class findByName(@Param("name") String name);
 
-    Collection<Class> findByMajorLike(@Param("major") String major);
+    Collection<Class> findByNameLike(@Param("major") String major);
 
     @Query("MATCH (a:Class),(b:Major) WHERE a.class_id = {class_id} AND b.name = {major} CREATE (a)-[r:BELONG_TO]->(b) RETURN r")
     void belongTo(@Param("class_id")int class_id,@Param("major")String major);

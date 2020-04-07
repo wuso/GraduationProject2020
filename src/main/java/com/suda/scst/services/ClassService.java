@@ -37,8 +37,8 @@ public class ClassService {
 
     //查询2
     @Transactional(readOnly = true)
-    public Collection<Class> findByMajorLike(String major) {
-        Collection<Class> result = classRepository.findByMajorLike(major);
+    public Collection<Class> findByNameLike(String name) {
+        Collection<Class> result = classRepository.findByNameLike(name);
         return result;
     }
 

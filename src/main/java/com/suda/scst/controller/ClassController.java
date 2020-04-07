@@ -36,7 +36,7 @@ public class ClassController {
 
     //编辑班级
     @PostMapping(value = "/edit")
-    public void editByName(@RequestBody Class origin) {
+    public String editByName(@RequestBody Class origin) {
         //不可更改原节点的name的值
         Class clazz = classService.findByName(origin.getName());
         //修改原节点的信息
@@ -46,12 +46,14 @@ public class ClassController {
         clazz.setClass_id(origin.getClass_id());
         //更新节点
         classService.upsertClass(clazz);
+        return "edit ok";
     }
 
     //查询班级
     @GetMapping("/query")
-    public Collection<Class> query(@RequestParam(value = "major") String major) {
-        return classService.findByMajorLike(major);
+    public Collection<Class> query(@RequestParam(value = "name") String name) {
+        return classService.findByNameLike(name);
     }
+
 
 }

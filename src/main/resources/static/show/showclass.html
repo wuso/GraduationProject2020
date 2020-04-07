@@ -200,7 +200,7 @@
     $(function () {
         function search() {
             const query = $("#search").find("input[name=search]").val();
-            $.get("/class/query?major=*" + encodeURIComponent(query) + "*",
+            $.get("/class/query?name=*" + encodeURIComponent(query) + "*",
                 function (data) {
                     var t = $("table#results tbody").empty();
                     if (!data) return;
@@ -220,9 +220,9 @@
 
     function edit(obj){
         const res = confirm('确认要编辑吗？');
-        const major = $(obj).parents("tr").find(".major").eq(0).html();
+        const name = $(obj).parents("tr").find(".name").eq(0).html();
         if(res === true) {
-            window.location.href="../edit/editclass.html?major="+major;
+            window.location.href="../edit/editclass.html?name="+name;
         }
     }
     function del(obj){
