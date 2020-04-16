@@ -2,6 +2,7 @@ package com.suda.scst.services;
 
 import com.suda.scst.domain.Class;
 import com.suda.scst.domain.Student;
+import com.suda.scst.repositories.ClassRepository;
 import com.suda.scst.repositories.StudentRepository;
 
 import org.slf4j.Logger;
@@ -22,9 +23,11 @@ public class StudentService {
     private final static Logger LOG = LoggerFactory.getLogger(StudentService.class);
 
     private final StudentRepository studentRepository;
+    private final ClassRepository classRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, ClassRepository classRepository) {
         this.studentRepository = studentRepository;
+        this.classRepository = classRepository;
     }
 
     private Map<String, Object> toD3Format(Collection<Student> movies) {
@@ -84,6 +87,17 @@ public class StudentService {
         Long student_id = student.getStudent_id();
         String name = student.getClazz();
         studentRepository.studyIn(student_id,name);
+    }
+
+    //添加到教师的关系
+    @Transactional(readOnly = true)
+    public void asMember(Student student) {
+        Long student_id = student.getStudent_id();
+        String name = student.getClazz();
+        Class clazz = classRepository.findByName(name);
+        String teacher = clazz.getTeacher();
+        studentRepository.learnFrom(student_id,teacher);
+        studentRepository.classMate(name);
     }
 
     //删除

@@ -38,6 +38,12 @@ public interface StudentRepository extends Neo4jRepository<Student, Long> {
     @Query("MATCH (a:Student),(b:Class) WHERE a.student_id = {student_id} AND b.name = {name} CREATE (a)-[r:STUDY_IN]->(b) RETURN r")
     void studyIn(@Param("student_id")Long student_id,@Param("name")String name);
 
+    @Query("MATCH (a:Student),(b:Teacher) WHERE a.student_id = {student_id} AND b.name = {name} CREATE (a)-[r:LEARN_FROM]->(b) RETURN r")
+    void learnFrom(@Param("student_id")Long student_id,@Param("name")String name);
+
+    @Query("MATCH (a:Student),(b:Student) WHERE a.clazz = {name} AND b.clazz = {name} AND a.name <> b.name CREATE (a)-[r:CLASSMATE]->(b) RETURN r")
+    void classMate(@Param("name")String name);
+
     @Query("MATCH (m:Class)<-[r:STUDY_IN]-(a:Student) RETURN m,r,a LIMIT {limit}")
     Collection<Student> graph(@Param("limit") int limit);
 

@@ -90,15 +90,4 @@ public class Student {
         this.clazz = clazz;
     }
 
-//    public List<Class> getClassList() {
-//        return classList;
-//    }
-//
-//    public void setClassList(List<Class> classList) {
-//        this.classList = classList;
-//    }
-//
-//    public void addClass(Class clazz) {
-//        this.classList.add(clazz);
-//    }
 }

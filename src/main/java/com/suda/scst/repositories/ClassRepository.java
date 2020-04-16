@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.Collection;
+import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "classes", path = "classes")
 public interface ClassRepository extends Neo4jRepository<Class, Long> {
@@ -20,6 +21,12 @@ public interface ClassRepository extends Neo4jRepository<Class, Long> {
 
     @Query("MATCH (a:Class),(b:Major) WHERE a.class_id = {class_id} AND b.name = {major} CREATE (a)-[r:BELONG_TO]->(b) RETURN r")
     void belongTo(@Param("class_id")int class_id,@Param("major")String major);
+
+    //mapper接口代码
+    //List<Class> teacherinfor();
+
+    ;
+
 
 //    @Query("MATCH (m:Class)<-[r:STUDY_IN]-(a:Student) RETURN m,r,a LIMIT {limit}")
 //    Collection<Class> graph(@Param("limit") int limit);

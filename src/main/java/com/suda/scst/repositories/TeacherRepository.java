@@ -28,5 +28,7 @@ public interface TeacherRepository extends Neo4jRepository<Teacher, Long> {
     @Query("MATCH (a:Teacher),(b:Class) WHERE a.class_id = {class_id} AND b.name = {major} CREATE (a)-[r:BELONG_TO]->(b) RETURN r")
     void belongTo(@Param("class_id")int class_id,@Param("major")String major);
 
+    @Query("MATCH (a:Teacher),(b:Teacher) WHERE  a.teacher_id = {teacher_id} AND a.name <> b.name CREATE (a)-[r:COLLEAGUE]->(b),(b)-[d:COLLEAGUE]->(a) RETURN r")
+    void colleague(@Param("teacher_id")int teacher_id);
 }
 

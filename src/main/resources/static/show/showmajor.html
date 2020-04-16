@@ -36,7 +36,7 @@
                 <div class="panel-body">
                     <ul class="nav">
                         <li>
-                            <a href="#">
+                            <a href="../show/showstudent.html">
                         <span class="glyphicon glyphicon-align-left" aria-hidden="true">
                         </span>学生信息录入</a>
                         </li>
@@ -46,9 +46,9 @@
                         </span>学生信息新增</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../show/showstudent.html">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true">
-                        </span>学生信息删除</a>
+                        </span>学生信息导出</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="panel-body">
                     <ul class="nav">
                         <li>
-                            <a href="#">
+                            <a href="../show/showteacher.html">
                         <span class="glyphicon glyphicon-align-left" aria-hidden="true">
                         </span>教师信息录入</a>
                         </li>
@@ -74,9 +74,9 @@
                         </span>教师信息新增</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../show/showteacher.html">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true">
-                        </span>教师信息删除</a>
+                        </span>教师信息导出</a>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +92,7 @@
                 <div class="panel-body">
                     <ul class="nav">
                         <li>
-                            <a href="#">
+                            <a href="../show/showclass.html">
                         <span class="glyphicon glyphicon-align-left" aria-hidden="true">
                         </span>班级信息录入</a>
                         </li>
@@ -102,9 +102,9 @@
                         </span>班级信息新增</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../show/showclass.html">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true">
-                        </span>班级信息删除</a>
+                        </span>班级信息导出</a>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +120,7 @@
                 <div class="panel-body">
                     <ul class="nav">
                         <li>
-                            <a href="#">
+                            <a href="#" id="fileImport1">
                         <span class="glyphicon glyphicon-align-left" aria-hidden="true">
                         </span>专业信息录入</a>
                         </li>
@@ -130,9 +130,9 @@
                         </span>专业信息新增</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href = "javascript:" onclick="download1()">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true">
-                        </span>专业信息删除</a>
+                        </span>专业信息导出</a>
                         </li>
                     </ul>
                 </div>
@@ -157,6 +157,9 @@
                         <input type="text"  placeholder="Search" class="form-control" name="search">
                     </div>
                     <button class="btn btn-default" type="submit">Search</button>
+                    <div  style="float:right;" class="btn btn-default btn-success" onclick="download()">导出</div>
+                    <div  style="float:right;" class="btn btn-default btn-primary" id="fileImport">导入</div>
+                    <div style="float:right;" class="btn btn-default btn-toolbar" onclick="window.location.href='../new/newmajor.html'">新增</div>
                 </form>
             </div>
         </div>
@@ -194,6 +197,11 @@
             </li>
         </ul>
     </div>
+    <form action="/major/exportList" id="exportExcle" method="POST">
+        <input type="hidden" name="dataTable" id="dataTable">
+    </form>
+    <input type="file" id="file" onchange="getFilePath()"
+           style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;"/>
 </div>
 
 <script type="text/javascript">
@@ -217,6 +225,37 @@
         $("#search").submit(search);
         search();
     });
+    $("#fileImport1").click(function () {
+        $("#file").click();
+    });
+    //点击导入按钮,使files触发点击事件,然后完成读取文件的操作
+    $("#fileImport").click(function () {
+        $("#file").click();
+    });
+    function getFilePath(){
+        //获取读取我文件的File对象
+        const file = document.getElementById('file').files[0];
+        const formData = new FormData();
+        formData.append('file',file);
+        $.ajax({
+            url: "/major/importList",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: "text",
+            async: true,
+            success: function (data) {
+                console.log(data);
+                alert("导入成功");
+                location.reload()
+            },
+            error: function () {
+                alert("数据发送失败");
+            }
+        });
+    }
+
     function edit(obj){
         const res = confirm('确认要编辑吗？');
         const name = $(obj).parents("tr").find(".major").eq(0).html();

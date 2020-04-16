@@ -1,12 +1,25 @@
 package com.suda.scst.controller;
 
+import com.suda.scst.domain.Class;
+import com.suda.scst.domain.Major;
 import com.suda.scst.domain.Student;
 import com.suda.scst.services.StudentService;
 
 import net.minidev.json.JSONObject;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +55,8 @@ public class StudentController {
         studentService.upsertStudent(student);
         //添加学生到班级的关系
         studentService.addClass(student);
+        //添加学生作为班级成员的关系
+        studentService.asMember(student);
     }
 
     //删除学生
@@ -75,6 +90,72 @@ public class StudentController {
     @RequestMapping(path = "/getUserNodeList", method = RequestMethod.GET)
     public List<Student> getUserNodeList() {
         return studentService.getUserNodeList();
+    }
+
+    //poi导入
+    @RequestMapping("/importList")
+    public void importList(@RequestParam(value = "file") MultipartFile mFile) throws IOException {
+        assert mFile != null;
+        HSSFWorkbook workbook = new HSSFWorkbook(new POIFSFileSystem(mFile.getInputStream()));
+        HSSFSheet sheet = workbook.getSheetAt(0);
+        int lastRowNum = sheet.getLastRowNum();
+        for (int i = 1; i <= lastRowNum; i++) {
+            HSSFRow row = sheet.getRow(i);
+            double id = row.getCell(0).getNumericCellValue();
+            String name = row.getCell(1).getStringCellValue();
+            String gender = row.getCell(2).getStringCellValue();
+            double born = row.getCell(3).getNumericCellValue();
+            String clazz = row.getCell(4).getStringCellValue();
+            Student user = new Student();
+            user.setStudent_id((long) id);
+            user.setName(name);
+            user.setGender(gender);
+            user.setBirth((int)born);
+            user.setClazz(clazz);
+            //查看数据库中是否有名字相同的专业，有则更新该节点，否则新建节点
+            if(studentService.findByName(name)!=null){
+                editByName(user);
+            }
+            else{
+                addStudent(user);
+            }
+//            将对象添加数据库
+            System.out.println(user.getName());
+        }
+    }
+
+    //poi导出
+    @RequestMapping("/exportList")
+    public void exportList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String fileName = "测试"+System.currentTimeMillis()+".xls";
+        String[] titles = {"学号","姓名","性别","出生日期","所属班级"};
+        List<Student> result = (List<Student>) studentService.findByNameLike("**");
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("students");
+        HSSFRow titleRow = sheet.createRow(0);
+        titleRow.setHeight((short) (20 * 30));
+        for (int i = 0; i < titles.length; i++) {
+            //创建单元格
+            HSSFCell cell = titleRow.createCell(i);
+            cell.setCellValue(titles[i]);
+        }
+        HSSFRow row = sheet.createRow(1);
+        for (int i = 0; i < result.size(); i++) {
+            row = sheet.createRow(i + 1);
+            Student aStudent = result.get(i);
+            row.createCell(0).setCellValue(aStudent.getStudent_id());
+            row.createCell(1).setCellValue(aStudent.getName());
+            row.createCell(2).setCellValue(aStudent.getGender());
+            row.createCell(3).setCellValue(aStudent.getBirth());
+            row.createCell(4).setCellValue(aStudent.getClazz());
+            row.setHeight((short) (20 * 30));
+        }
+        response.addHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", fileName));
+        OutputStream os = new BufferedOutputStream(response.getOutputStream());
+        response.setContentType("application/vnd.ms-excel;charset=gb2312");
+        workbook.write(os);
+        os.flush();
+        os.close();
     }
 
 //    public Map<String,Student> getStudent()

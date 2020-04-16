@@ -47,7 +47,7 @@ public class ClassService {
     public void addMajor(Class clazz) {
         int class_id = clazz.getClass_id();
         String major = clazz.getMajor();
-        classRepository.belongTo(class_id,major);
+        classRepository.belongTo(class_id, major);
     }
 
     //删除
@@ -65,4 +65,5 @@ public class ClassService {
     public Class upsertClass(Class clazz) {
         return classRepository.save(clazz);
     }
+
 }

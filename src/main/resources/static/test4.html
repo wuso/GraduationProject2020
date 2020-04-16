@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<HTML>
 <head>
+    <script type="text/javascript" src="./dist/js/jquery/jquery.min.js"></script>
+    <script type='text/javascript'>
+        function selectFile(){
+            //触发 文件选择的click事件
+            $("#file").trigger("click");
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            //其他code如 alert($("#file").attr("value"))
+        }
 
-    <title>获取文本框并修改其内容</title>
-
+        /* 获取 文件的路径 ，用于测试*/
+        function getFilePath(){
+            alert($("#file").attr("value"));
+        }
+    </script>
 </head>
-
 <body>
-
-<script language="javascript">
-
-    <!--
-
-    function c1()
-
-    {
-
-        var t=document.getElementById("txt");
-
-        t.value="www.jb51.net 修改文本内容"
-
-    }
-
-    -->
-
-</script>
-
-<input type="text" id="txt" value="" size="30"/>
-
-<input type="button" value="更改文本内容" name="btn" onclick="c1();" />
-
+<!-- 给这个input 设置样式隐藏，切忌不可用display控制隐藏,可能不能跨浏览器 -->
+<input type="file" id="file" onchange="getFilePath()"
+       style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;"/>
+<button onclick="selectFile();">select file</button>
+<button onclick="getFilePath()">get FilePath</button>
 </body>
-
 </html>

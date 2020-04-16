@@ -15,7 +15,16 @@ $(".panel-body > .nav > li > a").on("click", function(e) {
     alert(e.currentTarget.textContent);
 });
 
-
+function download(){
+    var html = $("#results").html();
+    $("#dataTable").val(html);
+    $("#exportExcle").submit();
+}
+function download1(){
+    var html = $("#results").html();
+    $("#dataTable").val(html);
+    $("#exportExcle").submit();
+}
 /**
  * @return {string}
  */
@@ -30,3 +39,6 @@ function GetQueryString(key)
     //返回参数值
     return result ? decodeURIComponent(result[2]) : null;
 }
+$("#fileImport1").click(function () {
+    $("#file").click();
+});

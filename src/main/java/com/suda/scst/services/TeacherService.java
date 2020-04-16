@@ -43,6 +43,13 @@ public class TeacherService {
         }
     }
 
+    //同事关系
+    @Transactional(readOnly = true)
+    public void addColleague(Teacher teacher) {
+        int teacher_id = teacher.getTeacher_id();
+        teacherRepository.colleague(teacher_id);
+    }
+
     //更新或新增（1.如果入参的teacher对象是先从库里搜索出来，在内存中改了部分字段，那么这边save就是更新，
     // 2.如果入参的teacher对象是直接new出来的，那么就是新增，框架会帮你自动生成id）
     @Transactional(readOnly = true)
