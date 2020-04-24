@@ -1,10 +1,7 @@
 package com.suda.scst.controller;
 
-import com.suda.scst.domain.Class;
 import com.suda.scst.domain.Major;
-import com.suda.scst.domain.Student;
 import com.suda.scst.services.MajorService;
-import com.suda.scst.services.StudentService;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;

@@ -26,6 +26,15 @@ public interface MajorRepository extends Neo4jRepository<Major, Long> {
 
     Collection<Major> findByNameLike(@Param("name") String name);
 
+    @Query("match (n:Student) return count(n)")
+    int getNum1();
+    @Query("match (n:Teacher) return count(n)")
+    int getNum2();
+    @Query("match (n:Class) return count(n)")
+    int getNum3();
+    @Query("match (n:Major) return count(n)")
+    int getNum4();
+
 //    @Query("MATCH (m:Class)<-[r:STUDY_IN]-(a:Student) RETURN m,r,a LIMIT {limit}")
 ////    Collection<Student> graph(@Param("limit") int limit);
 ////

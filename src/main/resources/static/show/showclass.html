@@ -1,8 +1,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>学生管理系统</title>
+    <title>社交网络管理系统</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="shortcut icon" href="../dist/img/2.jpg" type="image/x-icon" />
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../dist/css/1.css" rel="stylesheet">
 
@@ -22,6 +23,9 @@
         <a href="showclass.html">班级</a>
         <a href="showmajor.html">专业</a>
         <a href="#about" style="float:right">关于 <span class="glyphicon glyphicon-info-sign"></span></a>
+        <form id="logoutForm" action="/logout" method="post">
+            <a href="#" style="float:right" onclick="alert('注销成功');document.getElementById('logoutForm').submit();">注销</a>
+        </form>
     </ul>
 </div>
 <div class="row">
@@ -157,7 +161,7 @@
                     </div>
                     <button class="btn btn-default" type="submit">Search</button>
                     <div  style="float:right;" class="btn btn-default btn-success" onclick="class_download()">导出</div>
-                    <div  style="float:right;" class="btn btn-default btn-primary" id="fileImport">导入</div>
+                    <div  style="float:right;" class="btn btn-default btn-info" id="fileImport">导入</div>
                     <div style="float:right;" class="btn btn-default btn-toolbar" onclick="window.location.href='../new/newclass.html'">新增</div>
                 </form>
             </div>
@@ -180,22 +184,22 @@
                 </tbody>
             </table>
         </div>
-        <ul class="pagination" style="float: right;">
-            <li><a href="#">&laquo;</a>
-            </li>
-            <li class="active"><a href="#">1</a>
-            </li>
-            <li class="disabled"><a href="#">2</a>
-            </li>
-            <li><a href="#">3</a>
-            </li>
-            <li><a href="#">4</a>
-            </li>
-            <li><a href="#">5</a>
-            </li>
-            <li><a href="#">&raquo;</a>
-            </li>
-        </ul>
+<!--        <ul class="pagination" style="float: right;">-->
+<!--            <li><a href="#">&laquo;</a>-->
+<!--            </li>-->
+<!--            <li class="active"><a href="#">1</a>-->
+<!--            </li>-->
+<!--            <li class="disabled"><a href="#">2</a>-->
+<!--            </li>-->
+<!--            <li><a href="#">3</a>-->
+<!--            </li>-->
+<!--            <li><a href="#">4</a>-->
+<!--            </li>-->
+<!--            <li><a href="#">5</a>-->
+<!--            </li>-->
+<!--            <li><a href="#">&raquo;</a>-->
+<!--            </li>-->
+<!--        </ul>-->
     </div>
     <form action="/class/exportList" id="exportExcle" method="POST">
         <input type="hidden" name="dataTable" id="dataTable">

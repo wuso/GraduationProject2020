@@ -1,11 +1,7 @@
 package com.suda.scst.controller;
 
-import com.suda.scst.domain.Class;
-import com.suda.scst.domain.Major;
 import com.suda.scst.domain.Student;
 import com.suda.scst.services.StudentService;
-
-import net.minidev.json.JSONObject;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -119,6 +115,7 @@ public class StudentController {
             else{
                 addStudent(user);
             }
+            studentService.deleteRep();
 //            将对象添加数据库
             System.out.println(user.getName());
         }

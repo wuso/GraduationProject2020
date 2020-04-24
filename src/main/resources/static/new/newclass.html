@@ -1,8 +1,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>学生管理系统</title>
+    <title>社交网络管理系统</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="shortcut icon" href="../dist/img/2.jpg" type="image/x-icon" />
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../dist/css/1.css" rel="stylesheet">
     <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/>
@@ -23,6 +24,9 @@
         <a href="../show/showclass.html">班级</a>
         <a href="../show/showmajor.html">专业</a>
         <a href="#about" style="float:right">关于 <span class="glyphicon glyphicon-info-sign"></span></a>
+        <form id="logoutForm" action="/logout" method="post">
+            <a href="#" style="float:right" onclick="alert('注销成功');document.getElementById('logoutForm').submit();">注销</a>
+        </form>
     </ul>
 </div>
 <div class="row">

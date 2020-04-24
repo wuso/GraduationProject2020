@@ -81,6 +81,11 @@ public class StudentService {
         return toD3Format(result);
     }
 
+    @Transactional(readOnly = true)
+    public void deleteRep(){
+        studentRepository.deleteRep();
+    }
+
     //添加到班级的关系
     @Transactional(readOnly = true)
     public void addClass(Student student) {
